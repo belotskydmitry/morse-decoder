@@ -38,13 +38,7 @@ const MORSE_TABLE = {
 };
 
 function decode(expr) {
-    function decodeMorseLetter(letter) {
-        return MORSE_TABLE[letter];
-      }
-      function decodeMorseWord(word) {
-        return word.split(' ').map(decodeMorseLetter).join('');
-      }
-      return expr.trim().split('    ').map(decodeMorseWord).join(' ');
+  expr.match(/(.{10}|.)/g).forEach((buff) => str += (MORSE_TABLE[buff.replace(/00/g, '').replace(/10/g, '.').replace(/11/g. '-')] ? MORSE_TABLE[buff.replace(/00/g, '').replace(/10/g, '.').replace(/11/g, '-')] : ''));
 }
 
 module.exports = {
